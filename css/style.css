@@ -2,3 +2,7 @@ body {
   color: red;
   background-color: aqua;
 }
+
+.play-button {
+  visibility: hidden;
+}
