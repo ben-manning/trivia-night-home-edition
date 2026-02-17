@@ -8,10 +8,12 @@ let openSourceTriviaURLs = {
 let triviaQuestions;
 let questionNumber;
 let selections;
+let totalScore;
 
 // page elements
 const questionHeader = document.querySelector('.question');
 const button = document.querySelector('button');
+const nextButton = document.querySelector('.next-button');
 const playButton = document.querySelector('.play-button');
 const optionOneDisplay = document.querySelector('.option-one');
 const optionTwoDisplay = document.querySelector('.option-two');
@@ -35,6 +37,22 @@ playButton.addEventListener('click', () => {
   optionTwoDisplay.innerText = selections[1];
   optionThreeDisplay.innerText = selections[2];
   optionFourDisplay.innerText = selections[3];
+
+  const selectionButtons = document.querySelectorAll('.selection-button');
+  console.log(selectionButtons);
+
+  selectionButtons.forEach((button) => {
+    button.addEventListener('click', (evt) => {
+      console.log(evt.currentTarget.innerText);
+      console.log(triviaQuestions[current].incorrect_answers);
+      console.log(triviaQuestions[current].incorrect_answers.includes(evt.currentTarget.innerText));
+      if (triviaQuestions[current].incorrect_answers.includes(evt.currentTarget.innerText)) {
+        console.log('that is incorrect');
+      } else {
+        console.log('that is correct');
+      }
+    });
+  })
 });
 
 
