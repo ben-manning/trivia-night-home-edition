@@ -5,29 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/app.js"></script>
-  <title>Document</title>
+  <title>Trivia Night: Home Edition</title>
 </head>
 <body>
-  <h1>Trivia Night: Home Edition</h1>
-  <div>
-    <div>
-      <h2 class="question"></h2>
+  <div class="container">
+    <h1>Trivia Night: Home Edition</h1>
+
+    <!-- Start Screen -->
+    <div id="start-screen">
+      <p class="intro">20 questions. How many can you get right?</p>
+      <button id="start-button">Start Game</button>
     </div>
-    <div>
-      <p class="option-one selection-button"></p>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="hidden">
+      <div class="progress">
+        <span id="question-count">Question 1 / 20</span>
+        <span id="score-display">Score: 0</span>
+      </div>
+      <div class="question-card">
+        <h2 id="question-text"></h2>
+        <div id="answers-container">
+          <button class="answer-btn"></button>
+          <button class="answer-btn"></button>
+          <button class="answer-btn"></button>
+          <button class="answer-btn"></button>
+        </div>
+        <p id="feedback"></p>
+        <button id="next-button" class="hidden">Next Question &rarr;</button>
+      </div>
     </div>
-    <div>
-      <p class="option-two selection-button"></p>
-    </div>
-    <div>
-      <p class="option-three selection-button"></p>
-    </div>
-    <div>
-      <p class="option-four selection-button"></p>
+
+    <!-- End Screen -->
+    <div id="end-screen" class="hidden">
+      <h2>Game Over!</h2>
+      <p id="final-score"></p>
+      <button id="restart-button">Play Again</button>
     </div>
   </div>
-  <button>Make API Request</button>
-  <button class="play-button">BEGIN!</button>
-  <button class="next-button">NEXT!</button>
 </body>
 </html>
