@@ -85,10 +85,54 @@ function nextQuestion() {
   }
 }
 
+function updateLeaderboard(playerScore) {
+  const list = document.getElementById('leaderboard-list');
+  const items = Array.from(list.querySelectorAll('li:not(.player-entry)'));
+
+  // Remove any previous player entry
+  const prev = list.querySelector('.player-entry');
+  if (prev) prev.remove();
+
+  // Find insertion index (first existing score strictly less than playerScore)
+  let insertBefore = null;
+  for (const item of items) {
+    if (playerScore > parseInt(item.dataset.score, 10)) {
+      insertBefore = item;
+      break;
+    }
+  }
+
+  // Build new row
+  const li = document.createElement('li');
+  li.classList.add('player-entry');
+  li.dataset.score = playerScore;
+  li.innerHTML = `<span class="lb-rank">-</span><span class="lb-name">YOU</span><span class="lb-score">${playerScore}</span>`;
+
+  if (insertBefore) {
+    list.insertBefore(li, insertBefore);
+  } else {
+    list.appendChild(li);
+  }
+
+  // Re-number visible ranks
+  Array.from(list.querySelectorAll('li')).forEach((item, i) => {
+    if (!item.classList.contains('player-entry')) {
+      item.querySelector('.lb-rank').textContent = i + 1;
+    } else {
+      item.querySelector('.lb-rank').textContent = '-';
+    }
+  });
+
+  // Trim list to 11 entries (10 fake + player)
+  const all = Array.from(list.querySelectorAll('li'));
+  if (all.length > 11) all[all.length - 1].remove();
+}
+
 function showEndScreen() {
   gameScreen.classList.add('hidden');
   endScreen.classList.remove('hidden');
   finalScore.textContent = `You scored ${score} out of ${triviaQuestions.length}!`;
+  updateLeaderboard(score);
 }
 
 async function startGame() {

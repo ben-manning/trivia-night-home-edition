@@ -8,40 +8,62 @@
   <title>Trivia Night: Home Edition</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Trivia Night: Home Edition</h1>
+  <div class="layout">
 
-    <!-- Start Screen -->
-    <div id="start-screen">
-      <p class="intro">20 questions. How many can you get right?</p>
-      <button id="start-button">Start Game</button>
-    </div>
+    <!-- ===== LEADERBOARD PANEL (left) ===== -->
+    <aside class="leaderboard-panel">
+      <div class="leaderboard-title">&#9733; TOP 10 &#9733;</div>
+      <ol class="leaderboard-list" id="leaderboard-list">
+        <li data-score="20"><span class="lb-rank">1</span><span class="lb-name">ACE</span><span class="lb-score">20</span></li>
+        <li data-score="19"><span class="lb-rank">2</span><span class="lb-name">ZAP</span><span class="lb-score">19</span></li>
+        <li data-score="18"><span class="lb-rank">3</span><span class="lb-name">REX</span><span class="lb-score">18</span></li>
+        <li data-score="16"><span class="lb-rank">4</span><span class="lb-name">JET</span><span class="lb-score">16</span></li>
+        <li data-score="15"><span class="lb-rank">5</span><span class="lb-name">MAX</span><span class="lb-score">15</span></li>
+        <li data-score="13"><span class="lb-rank">6</span><span class="lb-name">KAZ</span><span class="lb-score">13</span></li>
+        <li data-score="11"><span class="lb-rank">7</span><span class="lb-name">FOX</span><span class="lb-score">11</span></li>
+        <li data-score="9"><span class="lb-rank">8</span><span class="lb-name">VEX</span><span class="lb-score">9</span></li>
+        <li data-score="7"><span class="lb-rank">9</span><span class="lb-name">BLU</span><span class="lb-score">7</span></li>
+        <li data-score="5"><span class="lb-rank">10</span><span class="lb-name">NYX</span><span class="lb-score">5</span></li>
+      </ol>
+    </aside>
 
-    <!-- Game Screen -->
-    <div id="game-screen" class="hidden">
-      <div class="progress">
-        <span id="question-count">Question 1 / 20</span>
-        <span id="score-display">Score: 0</span>
+    <!-- ===== GAME PANEL (right) ===== -->
+    <main class="game-panel">
+      <h1>TRIVIA NIGHT<br><span class="subtitle">HOME EDITION</span></h1>
+
+      <!-- Start Screen -->
+      <div id="start-screen">
+        <p class="intro">20 QUESTIONS &mdash; HOW MANY CAN YOU GET?</p>
+        <button id="start-button">PRESS START</button>
       </div>
-      <div class="question-card">
-        <h2 id="question-text"></h2>
-        <div id="answers-container">
-          <button class="answer-btn"></button>
-          <button class="answer-btn"></button>
-          <button class="answer-btn"></button>
-          <button class="answer-btn"></button>
+
+      <!-- Game Screen -->
+      <div id="game-screen" class="hidden">
+        <div class="progress">
+          <span id="question-count">QUESTION 1 / 20</span>
+          <span id="score-display">SCORE: 0</span>
         </div>
-        <p id="feedback"></p>
-        <button id="next-button" class="hidden">Next Question &rarr;</button>
+        <div class="question-card">
+          <h2 id="question-text"></h2>
+          <div id="answers-container">
+            <button class="answer-btn"></button>
+            <button class="answer-btn"></button>
+            <button class="answer-btn"></button>
+            <button class="answer-btn"></button>
+          </div>
+          <p id="feedback"></p>
+          <button id="next-button" class="hidden">NEXT &rarr;</button>
+        </div>
       </div>
-    </div>
 
-    <!-- End Screen -->
-    <div id="end-screen" class="hidden">
-      <h2>Game Over!</h2>
-      <p id="final-score"></p>
-      <button id="restart-button">Play Again</button>
-    </div>
+      <!-- End Screen -->
+      <div id="end-screen" class="hidden">
+        <h2>GAME OVER!</h2>
+        <p id="final-score"></p>
+        <button id="restart-button">PLAY AGAIN</button>
+      </div>
+    </main>
+
   </div>
 </body>
 </html>
