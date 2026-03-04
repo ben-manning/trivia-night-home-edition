@@ -1,5 +1,7 @@
 # Trivia Night: Home Edition
 
+![Trivia Night: Home Edition](assets/images/trivia-night.png)
+
 A browser-based trivia game with a retro 80s arcade aesthetic — built for fun and to sharpen vanilla web skills.
 
 ---
